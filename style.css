@@ -152,3 +152,77 @@ h1 em, h2 em { color: var(--rose); font-weight: 500; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+/* GALERI FOTO ALVI */
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    min-height: 220px;
+    background: #f5dce2;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.06);
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 35px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.65)
+    );
+}
+
+.photo-caption .photo-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+.photo-caption .photo-subtitle {
+    font-size: 12px;
+    color: #ffe8ee;
+}
+
+.photo-tall {
+    grid-row: span 2;
+}
+
+.photo-wide {
+    grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .photo-card {
+        min-height: 180px;
+    }
+
+    .photo-card img {
+        min-height: 180px;
+    }
+
+    .photo-wide {
+        grid-column: span 2;
+    }
+}
